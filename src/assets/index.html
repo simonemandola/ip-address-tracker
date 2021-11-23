@@ -10,6 +10,15 @@
     <meta name="generator" content="Clojure">
     <meta name="keywords" content="html, css, javascript">
     <meta name="description" content="my description...">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/mobile.min.css" media="all and (max-width: 600px)">
     <link rel="stylesheet" href="css/desktop.min.css" media="all and (min-width: 601px)">
 </head>
@@ -21,12 +30,36 @@
             </div>
             <form class="ip-add-landing__form">
                 <label>
-                    <input type="text" placeholder="Search for any IP address or domain">
+                    <input type="text" id="ipInput"
+                           placeholder="Search for any IP address or domain">
                 </label>
-                <button type="submit"><i class="icon__arrow"></i></button>
+                <button type="submit" id="btnSubmit"><i class="icon__arrow"></i></button>
             </form>
         </section>
+        <section class="map">
+            <div class="map__inner">
+                <div id="map"></div>
+                <div class="map__res-wrap">
+                    <div class="map__ip">
+                        <h2 class="map__label-res">ip address</h2>
+                        <p class="map__res">192</p>
+                    </div>
+                    <div class="map__ip">
+                        <h2 class="map__label-res">location</h2>
+                        <p class="map__res">Brooklyn, <span id="countryUnicode">NY</span></p>
+                    </div>
+                    <div class="map__ip">
+                        <h2 class="map__label-res">timezone</h2>
+                        <p class="map__res">utc-05:00</p>
+                    </div>
+                    <div class="map__ip">
+                        <h2 class="map__label-res">isp</h2>
+                        <p class="map__res">spacex</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-<script src="main.js"></script>
+    <script type="module" src="js/main.min.js"></script>
 </body>
 </html>
