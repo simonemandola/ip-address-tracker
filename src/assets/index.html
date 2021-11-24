@@ -28,12 +28,12 @@
             <div class="ip-add-landing__title">
                 <h1 class="title-h1">IP Address Tracker</h1>
             </div>
-            <form class="ip-add-landing__form">
+            <form class="ip-add-landing__form" id="form">
                 <label>
                     <input type="text" id="ipInput"
                            placeholder="Search for any IP address or domain">
                 </label>
-                <button type="submit" id="btnSubmit"><i class="icon__arrow"></i></button>
+                <button type="submit"><i class="icon__arrow"></i></button>
             </form>
         </section>
         <section class="map">
@@ -42,19 +42,21 @@
                 <div class="map__res-wrap">
                     <div class="map__ip">
                         <h2 class="map__label-res">ip address</h2>
-                        <p class="map__res">192</p>
+                        <p class="map__res" id="ipRes"></p>
                     </div>
                     <div class="map__ip">
                         <h2 class="map__label-res">location</h2>
-                        <p class="map__res">Brooklyn, <span id="countryUnicode">NY</span></p>
+                        <span class="map__res" id="cityRes">Brooklyn,</span>
+                        <span id="UCRes">NY</span>
+                        <span id="postalCodeRes">0000</span>
                     </div>
                     <div class="map__ip">
                         <h2 class="map__label-res">timezone</h2>
-                        <p class="map__res">utc-05:00</p>
+                        <p class="map__res" id="timezoneRes">utc-05:00</p>
                     </div>
                     <div class="map__ip">
                         <h2 class="map__label-res">isp</h2>
-                        <p class="map__res">spacex</p>
+                        <p class="map__res" id="ispRes">spacex</p>
                     </div>
                 </div>
             </div>
