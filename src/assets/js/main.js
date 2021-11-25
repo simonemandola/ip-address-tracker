@@ -24,7 +24,8 @@ function showLocation() {
     marker = L.marker([latRes, lngRes]).addTo(myMap);
 
     L.tileLayer(`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}`, {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>' +
+            ' contributors, Imagery © <a href="https://www.mapbox.com/" target="_blank">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox/streets-v9',
         tileSize: 512,
@@ -50,8 +51,8 @@ const getGeolocation = ()=> {
         .then(res => res.json())
         .then(res => {
             ipRes.innerHTML = res.ip;
-            cityRes.innerHTML = res.location.city;
-            uniCodeRes.innerHTML = res.location.country;
+            cityRes.innerHTML = res.location.city + ', ';
+            uniCodeRes.innerHTML = res.location.country + ', ';
             postalCodeRes.innerHTML = res.location.postalCode;
             timezoneRes.innerHTML = 'UTC' + res.location.timezone;
             ispRes.innerHTML = res.isp;
@@ -62,22 +63,15 @@ const getGeolocation = ()=> {
             showLocation();
         })
         .catch(error => {
+            console.log(error);
             alert('Insert valid IP, domain or email!');
             LOADING.style.visibility = 'hidden';
-            navigator.geolocation.getCurrentPosition(
-                getUserPos =>{
-                    latRes = getUserPos.coords.latitude;
-                    lngRes = getUserPos.coords.longitude;
-                    myMap.setView([latRes,lngRes], 12);
-                },
-                    errorUserPos => {
-                        console.log(errorUserPos);
-            });
+            LOADING.style.opacity = '0';
+            myMap.setView([latRes,lngRes], 12);
         });
 }
 
-// Get Geolocation On load
-window.addEventListener('load', ()=>{
+function userGeoOnLoad() {
 
     function getUserPos(position) {
         latRes = position.coords.latitude;
@@ -91,7 +85,14 @@ window.addEventListener('load', ()=>{
     }
 
     navigator.geolocation.getCurrentPosition(getUserPos, errorUserPos);
-});
+}
+
+function ipFailed() {
+    alert('Insert valid IP, domain or email! 99999999999');
+}
+
+// Get Geolocation On load
+window.addEventListener('load', userGeoOnLoad);
 
 // Event listener on form submit
 FORM.addEventListener('submit',(e)=>{
@@ -101,15 +102,16 @@ FORM.addEventListener('submit',(e)=>{
 
     if(ip.value.includes('www.')) {
         urlGeo = ipGeolocationApi + BY_DOMAIN + ip.value;
+        getGeolocation();
     } else if (ip.value.includes('@')) {
         urlGeo = ipGeolocationApi + BY_EMAIL + ip.value;
+        getGeolocation();
     } else if (ip.value === "") {
-        return alert('Insert valid IP or domain!');
+        return ipFailed();
     } else {
         urlGeo = ipGeolocationApi + BY_IP + ip.value;
+        getGeolocation();
     }
-
-    getGeolocation();
 
     ip.value = ""
 });
