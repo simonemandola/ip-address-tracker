@@ -1,3 +1,51 @@
+# Frontend Mentor - IP address tracker solution
+
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0).
+
+## Table of contents
+
+- [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+- [My process](#my-process)
+    - [Built with](#built-with)
+    - [Useful resources](#useful-resources)
+- [Author](#author)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
+
+### Screenshot
+
+![](./screenshot/simone-mandola-ip-address-tracker-desktop.png)
+![](./screenshot/simone-mandola-ip-address-tracker-mobile.png)
+
+### Links
+
+- Live Site URL: [View online](https://simonemandola.github.io/ip-address-tracker/public)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- Vanilla JavaScript
+- Gulp
+- npm
+
 ## 1. Install npm
 
 Install packaje-lock.json
@@ -81,3 +129,15 @@ In **src** directory add **main.js**, then import all .js files
 ## 6. Add .gitignore
 
 In '**root**' dir add .gitignore
+
+### Useful resources
+
+- [Leafletjs](https://leafletjs.com/) - Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps.
+  forward.
+- [Mapbox](https://www.mapbox.com/) - OpenStreetMap.
+- [IP Geolocation API](https://geo.ipify.org/) - IP Geolocation API allows you to locate and identify website visitors by IP address. IP location helps prevent fraud, customize web experiences, and maintain regulatory compliance.
+
+## Author
+
+- Website - [Simone Mandola](https://www.simonemandola.com)
+- Frontend Mentor - [@simonemandola](https://www.frontendmentor.io/profile/simonemandola)
