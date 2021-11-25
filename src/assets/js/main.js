@@ -1,7 +1,7 @@
 // Const
 const FORM = document.querySelector('#form');
 const LOADING = document.querySelector('#loading');
-const API_KEY_GEOLOCATION = 'at_8fVFRgj29d0wZYsQ5lGFy650uDD8w';
+const API_KEY_GEOLOCATION = 'at_NbmIxuptjUfOETwyIdBKFTcmWLBi8';
 const BY_IP = 'ipAddress=';
 const BY_DOMAIN = 'domain=';
 const BY_EMAIL = 'email=';
@@ -88,7 +88,7 @@ function userGeoOnLoad() {
 }
 
 function ipFailed() {
-    alert('Insert valid IP, domain or email! 99999999999');
+    alert('Insert valid IP, domain or email!');
 }
 
 // Get Geolocation On load
@@ -98,7 +98,12 @@ window.addEventListener('load', userGeoOnLoad);
 FORM.addEventListener('submit',(e)=>{
 
     e.preventDefault();
+
     ip.value = ip.value.trim().toLowerCase();
+
+    if(ip.value.includes('https://')) ip.value = ip.value.replace('https://', '');
+
+    if(ip.value.includes('/')) ip.value = ip.value.replace('/','');
 
     if(ip.value.includes('www.')) {
         urlGeo = ipGeolocationApi + BY_DOMAIN + ip.value;

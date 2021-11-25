@@ -1,1 +1,125 @@
 // Home style for mobile
+
+.leaflet-control-container
+  display: none
+
+.ip-add-landing
+  height: $header-height
+  background-image: url("../img/pattern-bg.png")
+  background-size: cover
+  background-repeat: no-repeat
+
+  &__title
+    height: 18%
+    @include flex(center,flex-end,row)
+    width: 100%
+
+    & > h1
+      font-size: clamp(1.2rem + 1.5vw, 1.2rem + 1vw, 1.2rem - 2vw)
+      margin: 0
+      font-weight: 500
+      color: $color__white
+      text-align: center
+
+  &__form
+    margin-top: calc(#{$margin__1} + 1vw)
+    position: relative
+    width: 100%
+    max-width: 90%
+    height: 3.5rem
+    min-height: 20%
+    @include centerX
+    @include flex(space-between,center,row)
+    flex-wrap: nowrap
+    background-color: $color__white
+    border-radius: $border-radius__1
+
+    label
+      width: 100%
+      height: 100%
+
+      & > input
+        width: 100%
+        height: 100%
+        padding: $padding__-5 $padding__1-5
+        box-sizing: border-box
+
+    button
+      width: 4rem
+      min-width: 10%
+      height: 100%
+      background-color: $color__very-dark-grey
+      transition: $transition__-4
+      border-top-right-radius: $border-radius__1
+      border-bottom-right-radius: $border-radius__1
+
+      i
+        font-size: .9rem
+        width: 100%
+        height: 100%
+        color: $color__white
+
+      &:hover
+        opacity: .9
+        transition: $transition__-4
+
+  &__icon-loader
+    position: absolute
+    right: 4.5rem
+    top: 1rem
+    color: $color__dark-grey
+    pointer-events: none
+    visibility: hidden
+    @include animation(loading, .8s, both)
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+    transition: $transition__-4
+
+.map
+  position: relative
+
+  &__res-wrap
+    position: absolute
+    top: -32%
+    left: 50%
+    margin-left: -45%
+    width: 100%
+    max-width: 90%
+    height: max-content
+    min-height: 30%
+    background-color: $color__white
+    border-radius: $border-radius__1
+    padding: $padding__1-5 0
+    box-sizing: border-box
+    z-index: 500
+    @include flex(space-between,center,column)
+    box-shadow: $box-shadow
+
+  &__ip-res
+    width: 100%
+    min-width: min-content
+    min-height: 4rem
+    position: relative
+    @include flex(flex-start,center,column)
+    margin-bottom: auto
+
+    & > h2
+      font-weight: 500
+      text-transform: uppercase
+      font-size: clamp(.5rem + .2vw, .8rem + .8vw, 1rem - 1vw)
+      color: $color__dark-grey
+      margin-top: .1rem
+      text-align: center
+      letter-spacing: 2px
+
+    & > p,
+    & > span
+      color: $color__very-dark-grey
+      font-size: clamp(1rem + .5vw, 1rem + .5vw, 1.2rem + .5vw)
+      margin: 0
+      font-weight: 500
+      text-align: center
+
+@media all and (max-width: $small-screen)
+  .map__res-wrap
+    top: -28%
