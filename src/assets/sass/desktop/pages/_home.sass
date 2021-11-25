@@ -1,1 +1,127 @@
 // Home style for desktop
+
+.ip-add-landing
+  height: $header-height
+  background-image: url("../img/pattern-bg.png")
+  background-size: cover
+  background-repeat: no-repeat
+
+  &__title
+    height: 25%
+    @include flex(center,flex-end,row)
+    width: max-content
+    @include centerX
+
+    & > h1
+      font-size: clamp(.5rem + 1.5vw, 1rem + 1vw, 1rem - 2vw)
+      margin: 0
+      font-weight: 500
+      color: $color__white
+
+  &__form
+    margin-top: calc(#{$margin__1} + 1vw)
+    position: relative
+    width: 100%
+    max-width: calc(50% - 8vw)
+    height: 3.5rem
+    min-height: 20%
+    @include centerX
+    @include flex(space-between,center,row)
+    flex-wrap: nowrap
+    background-color: $color__white
+    border-radius: $border-radius__1
+
+    label
+      width: 100%
+      height: 100%
+
+      & > input
+        width: 100%
+        height: 100%
+        padding: $padding__-5 $padding__1-5
+        box-sizing: border-box
+
+    button
+      width: 4rem
+      height: 100%
+      background-color: $color__very-dark-grey
+      transition: $transition__-4
+      border-top-right-radius: $border-radius__1
+      border-bottom-right-radius: $border-radius__1
+
+      i
+        font-size: .9rem
+        width: 100%
+        height: 100%
+        color: $color__white
+
+      &:hover
+        opacity: .9
+        transition: $transition__-4
+
+  &__icon-loader
+    position: absolute
+    right: 4.5rem
+    top: 1rem
+    color: $color__dark-grey
+    pointer-events: none
+    visibility: hidden
+    @include animation(loading, .8s, both)
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+    transition: $transition__-4
+
+.map
+  position: relative
+
+  &__res-wrap
+    position: absolute
+    top: -15%
+    left: 50%
+    margin-left: -40%
+    width: 100%
+    max-width: calc(80% - 2vw)
+    height: 8.8rem
+    min-height: 30%
+    background-color: $color__white
+    border-radius: $border-radius__1
+    padding: $padding__1-5
+    box-sizing: border-box
+    z-index: 500
+    @include flex(space-evenly,center,row)
+
+  &__ip-res
+    width: 100%
+    height: 100%
+    position: relative
+    @include flex(flex-start,flex-start,column)
+    padding:
+      left: $padding__1-5
+      right: $padding__1-5
+
+    &:not(:first-child)::before
+      position: absolute
+      content: ''
+      top: 20%
+      left: 0
+      width: 1px
+      height: 70%
+      background-color: $color__dark-grey
+      opacity: .5
+
+    & > h2
+      height: 2rem
+      font-weight: 500
+      text-transform: uppercase
+      font-size: clamp(.5rem + .2vw, .8rem + .8vw, 1rem - 1vw)
+      color: $color__dark-grey
+      margin-top: .1rem
+      text-align: center
+      letter-spacing: 2px
+
+    & > p,
+    & > span
+      color: $color__very-dark-grey
+      font-size: clamp(1rem + .5vw, 1rem + .5vw, 1.2rem + .5vw)
+      margin: 0
+      font-weight: 500
